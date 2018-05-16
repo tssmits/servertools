@@ -1,2 +1,2 @@
-venv="source venv/bin/activate"
-uvenv="deactivate"
+alias venv="source venv/bin/activate"
+alias uvenv="deactivate"
