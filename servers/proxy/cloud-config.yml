@@ -1,10 +1,8 @@
 #cloud-config
 package_update: true
-packages: ['python', 'postgresql-client', 'unzip', 'silversearcher-ag', 'tree']
+packages: ['squid']
 runcmd:
-  - git config --global credential.helper "cache --timeout=3600"
-  - curl "https://raw.githubusercontent.com/tssmits/servertools/master/snippets/cd_aliases" >> "$HOME/.bashrc"
-  - curl "https://raw.githubusercontent.com/tssmits/servertools/master/servers/proxy/acl.squid.conf" > "/etc/squid/acl.squid.conf"
-  - curl "https://raw.githubusercontent.com/tssmits/servertools/master/servers/proxy/http_access.squid.conf" > "/etc/squid/http_access.squid.conf"
+  - curl "https://raw.githubusercontent.com/tssmits/servertools/master/servers/proxy/squid.acl.conf" > "/etc/squid/squid.acl.conf"
+  - curl "https://raw.githubusercontent.com/tssmits/servertools/master/servers/proxy/squid.http_access.conf" > "/etc/squid/http_access.squid.conf"
   - curl "https://raw.githubusercontent.com/tssmits/servertools/master/servers/proxy/squid.conf" > "/etc/squid/squid.conf"
   - service squid restart
